@@ -1,0 +1,18 @@
+kind: pipeline
+type: docker
+name: default
+steps:
+  - name: build
+    image: node
+    commands:
+      - npm install --legacy-peer-deps
+    when:
+      branch:
+        - master
+        - feature/lander
+  - name: docker
+    image: plugins/docker
+    settings:
+      username: avinashfasale29
+      password: Avi@1443
+      repo: avinashfasale29/Airline-System
